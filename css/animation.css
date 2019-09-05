@@ -10,7 +10,7 @@
 	font-size: 36px;
 	font-weight: 800;
 	position: absolute;
-	top: 178px;
+	top: 50%;
 	animation-fill-mode: forwards;
 }
 
@@ -19,7 +19,7 @@
 	font-weight: 600;
 	color: #FFB65A;
 	position: absolute;
-	top: 154px;
+	top: 0px;
 	animation-fill-mode: forwards;
 }
 
@@ -27,7 +27,7 @@
 	font-size: 18px;
 	font-weight: 400;
 	position: absolute;
-	top: 220px;
+	top: 80%;
 	animation-fill-mode: forwards;
 }
 
@@ -39,7 +39,7 @@
 	/*backdrop-filter: blur(20px);*/
 	position: absolute;
 	top: 12px;
-	left: calc(100vw - 652px - 36px);
+	left: calc(100vw - 1006px - 36px);
 	width: 652px;
 	height: calc(100vh - 24px);
 	z-index: 9999;

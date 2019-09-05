@@ -20,36 +20,36 @@ function renderPreview(parentContainer, config){
 
 	tipAmount.innerHTML = '100';
 	tipAmount.id = 'tip-amount';
-	tipAmount.style.display = 'none';
+	tipAmount.style.display = 'block';
 	tipAmount.style.animationDuration = '1s';
 
 	tipperName.innerHTML = 'TipAlerts';
 	tipperName.id = 'tipper-name';
-	tipperName.style.display = 'none';
+	tipperName.style.display = 'block';
 	tipperName.style.animationDuration = '1s';
 
 	customMessage.innerHTML = 'Thank you!';
 	customMessage.id = 'custom-message';
-	customMessage.style.display = 'none';
+	customMessage.style.display = 'block';
 	customMessage.style.animationDuration = '1s';
 
 	if(config.appearance.enabled){
 		appearanceContainer.style.animationName = config.appearance.preset.anim;
-		tipAmount.style.animationName = config.appearance.preset.anim;
-		tipperName.style.animationName = config.appearance.preset.anim;
-		customMessage.style.animationName = config.appearance.preset.anim;
+		// tipAmount.style.animationName = config.appearance.preset.anim;
+		// tipperName.style.animationName = config.appearance.preset.anim;
+		// customMessage.style.animationName = config.appearance.preset.anim;
 
-		setTimeout(() => {
-				tipperName.style.display = 'block';
-		}, 300);
+		// setTimeout(() => {
+		// 		tipperName.style.display = 'block';
+		// }, 300);
 
-		setTimeout(() => {
-				tipAmount.style.display = 'block';
-		}, 600);
+		// setTimeout(() => {
+		// 		tipAmount.style.display = 'block';
+		// }, 600);
 
-		setTimeout(() => {
-				customMessage.style.display = 'block';
-		}, 900);
+		// setTimeout(() => {
+		// 		customMessage.style.display = 'block';
+		// }, 900);
 
 		// tipperName.style.animationName = config.appearance.preset.anim;
 		// customMessage.style.animationName = config.appearance.preset.anim;
