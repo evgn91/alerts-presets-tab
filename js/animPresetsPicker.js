@@ -29,6 +29,7 @@ let animConfig = {
 
 					appearance: 		{
 											preset: appearancePresets[1].presets[0],
+											pickerIndex: 1,
 											duration: '1s',
 											enabled: true,
 											timingFunction: null
@@ -37,6 +38,7 @@ let animConfig = {
 
 					move: 				{	
 											preset: movePresets[1].presets[2],
+											pickerIndex: 3,
 											duration: null,
 											enabled: true,
 											timingFunction: 'ease'
@@ -44,6 +46,7 @@ let animConfig = {
 
 					fade: 				{
 											preset: fadePresets[1].presets[0],
+											pickerIndex: 1,
 											duration: '1s',
 											enabled: true,
 											timingFunction: null
@@ -85,14 +88,18 @@ let animControlsCfg = {
 
 
 
-var animSetPreset = function( preset, animPhase, control, duration ){
+var animSetPreset = function( preset, animPhase, control, duration, pickerIndex ){
 
 	return function(){
+
 
 				clearTimeout(animRemoveTimeout);
 				clearTimeout(animCycleTimeout);
 
 				animConfig[animPhase].preset = preset;
+				animConfig[animPhase].pickerIndex = pickerIndex;
+
+				console.log(pickerIndex);
 
 				if( duration && animPhase != 'move' ){
 					animConfig[animPhase].duration = duration;
@@ -154,7 +161,7 @@ let animSetRandom = function( animPhase, control ){
 			}
 }
 
-let renderPresetsPicker = function(parentElem, collection, animPhase, control){
+let renderPresetsPicker = function(parentElem, collection, animPhase, control, animCfg){
 
 	return function(){
 
@@ -170,6 +177,7 @@ let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 		let pickerModal = document.createElement('section');
 		let pickerModalTitleWrapper = document.createElement('div');
 		let scrollContainer = document.createElement('div');
+		let indexCount = 0;
 
 		pickerModal.classList.add('anim-presets-picker');
 		scrollContainer.classList.add('scroll-container');
@@ -239,7 +247,7 @@ let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 			presetsGroupWrapper.classList.add('anim-presets-picker-group');	
 
 			for(let j = 0; j < collection[i].presets.length; j++){
-
+				indexCount++;
 				let presetItem = document.createElement('div');
 				let presetItemTitle = document.createElement('span');
 				let presetItemTitleWrapper = document.createElement('div');
@@ -269,6 +277,17 @@ let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 				presetItemTitleWrapper.classList.add('anim-preset-picker-item-title-wrapper');
 				presetItemPreviewImg.classList.add('anim-presets-picker-item-preview-image');
 				presetItemPreviewContainer.classList.add('anim-preset-picker-item-preview-wrapper');
+
+				if( indexCount == animCfg[animPhase].pickerIndex ){
+							presetItemPreviewContainer.style.backgroundColor = collection[i].color;
+							presetItemTitleWrapper.style.backgroundColor = collection[i].color;
+							presetItemTitle.style.color = '#131b20';
+							presetItemProgressBar.style.backgroundColor = '#131b20';
+							presetItemPreviewImg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="33" height="31" viewBox="0 0 33 31" fill="none">
+				<path d="M30.2031 2.89745C26.474 -0.965815 20.4278 -0.965815 16.6986 2.89745L16.5 3.10319L16.3014 2.89745C12.5722 -0.965816 6.52605 -0.965815 2.79688 2.89745C-0.932292 6.76071 -0.932293 13.0243 2.79688 16.8876L16.5565 31L30.2031 16.8876C33.9323 13.0243 33.9323 6.76071 30.2031 2.89745Z" fill="#131b20"/>
+				</svg>`;
+
+						}
 
 				switch (animPhase) {
 					case 'appearance':
@@ -306,7 +325,7 @@ let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 							clearTimeout(previewImgTimeout);
 						}
 
-						presetItem.addEventListener('click', animSetPreset( collection[i].presets[j], 'appearance', control, animDuration ));
+						presetItem.addEventListener('click', animSetPreset( collection[i].presets[j], 'appearance', control, animDuration, indexCount ));
 
 
 						break;
@@ -323,7 +342,7 @@ let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 							presetItemPreviewImg.style.animationName = '';
 						}
 
-						presetItem.addEventListener('click', animSetPreset( collection[i].presets[j], 'move', control, animDuration ));
+						presetItem.addEventListener('click', animSetPreset( collection[i].presets[j], 'move', control, animDuration, indexCount ));
 
 						break;
 
@@ -354,7 +373,9 @@ let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 							clearTimeout(previewImgTimeout);
 						}
 
-						presetItem.addEventListener('click', animSetPreset( collection[i].presets[j], 'fade', control, animDuration ));
+						console.log(indexCount);
+
+						presetItem.addEventListener('click', animSetPreset( collection[i].presets[j], 'fade', control, animDuration, indexCount ));
 
 						break;
 
@@ -532,14 +553,14 @@ let renderAnimControl = function( pickerCfg, parentElem, animPhase, controlTitle
 
 		checkboxInput.addEventListener('change', () => {return switchAnimState(control, animPhase, checkboxInput)});
 
-		previewWrapper.addEventListener( 'click', renderPresetsPicker( settingsTabContent, presets, animPhase, control ) );
+		previewWrapper.addEventListener( 'click', renderPresetsPicker( settingsTabContent, presets, animPhase, control, animConfig ) );
 
 		return control;
 }
 
 let appearanceAnimControl = renderAnimControl( animControlsCfg.appearance, animPickersWrapper, 'appearance', 'Appearance', appearancePresets );
 let moveAnimControl = renderAnimControl( animControlsCfg.move, animPickersWrapper, 'move', 'Move', movePresets );
-let fadeAnimControl = renderAnimControl( animControlsCfg.fade, animPickersWrapper, 'fade', 'Fade', fadePresets );
+let fadeAnimControl = renderAnimControl( animControlsCfg.fade, animPickersWrapper, 'fade', 'Fade', fadePresets);
 
 
 let closeModal = function(){
