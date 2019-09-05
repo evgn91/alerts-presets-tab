@@ -1,0 +1,566 @@
+.preview-image{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	position: relative;
+}
+
+#tip-amount{
+	font-size: 36px;
+	font-weight: 800;
+	position: absolute;
+	top: 178px;
+	animation-fill-mode: forwards;
+}
+
+#tipper-name{
+	font-size: 20px;
+	font-weight: 600;
+	color: #FFB65A;
+	position: absolute;
+	top: 154px;
+	animation-fill-mode: forwards;
+}
+
+#custom-message{
+	font-size: 18px;
+	font-weight: 400;
+	position: absolute;
+	top: 220px;
+	animation-fill-mode: forwards;
+}
+
+
+.anim-presets-picker{
+	/*overflow-y: scroll;*/
+	overflow: hidden;
+	background-color: hsla(205, 26%, 10%, 1);
+	/*backdrop-filter: blur(20px);*/
+	position: absolute;
+	top: 12px;
+	left: calc(100vw - 652px - 36px);
+	width: 652px;
+	height: calc(100vh - 24px);
+	z-index: 9999;
+	padding: 12px 16px 16px 16px;
+	box-sizing: border-box;
+	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	/*animation-duration: .2s;
+	animation-name: presetsPickerSlide;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;*/
+}
+
+.anim-presets-picker::-webkit-scrollbar{
+	display: none;
+}
+
+.anim-picker-head{
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.anim-presets-picker-group{
+	margin-bottom: 36px;
+	animation-duration: .7s;
+	animation-timing-function: ease-out;
+}
+
+.anim-presets-picker-group > .grid-container{
+	margin-top: 6px;
+}
+
+.anim-presets-group-title{
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+}
+
+.grid-container{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 6px;
+}
+
+.scroll-container{
+	overflow-y: scroll;
+	width: 100%;
+}
+
+.scroll-container::-webkit-scrollbar{
+	display: none;
+}
+
+.anim-presets-picker-item{
+	width: 100%;
+	transition: all .275s ease;
+}
+
+.anim-preset-item-wrapper{
+	margin-bottom: 0px;
+}
+
+.anim-preset-item-wrapper > label{
+	margin-bottom: 6px;
+}
+
+.anim-preset-picker-item-preview-wrapper{
+	overflow: hidden;
+	height: 85px;
+	width: 100%;
+	background-color: rgba(255,255,255,0.03);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .275s ease;
+	border-radius: 4px 4px 0px 0px;
+	position: relative;
+}
+
+.anim-presets-picker-item:hover .anim-preset-picker-item-preview-wrapper{
+	background-color: rgba(255,255,255,0.1);
+}
+
+.anim-preset-picker-item-title-wrapper{
+	height: 24px;
+	width: 100%;
+	background-color: rgba(255,255,255,0.03);
+	border-radius: 0px 0px 4px 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1px;
+}
+
+.anim-preset-picker-item-title{
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 16px;
+	transition: all .275s ease;
+}
+
+.anim-preview-progress-bar{
+	background-color: white;
+	position: absolute;
+	top: calc(100% - 2px);
+	left: 0%;
+	height: 2px;
+	width: 0%;
+	margin-bottom: 4px;
+	animation-iteration-count: infinite;
+	animation-duration: 1.4s;
+	animation-timing-function: linear;
+}
+
+/*.anim-presets-picker-item > div:first-child > img{
+	animation-duration: 1s;
+	position: absolute;
+	mask: url(../img/heart-mask.svg);
+	background-color: red;
+	width: 33px;
+	height: 31px;
+	mask-type: alpha;
+}*/
+
+.anim-presets-picker-item-preview-image{
+	animation-duration: 1s;
+	position: absolute;
+	animation-iteration-count: infinite;
+	/*mask-image: url(../img/heart-mask.svg);*/
+	/*-webkit-mask-image: url(../img/heart-mask.svg);
+	-webkit-mask-repeat: no-repeat;*/
+	/*mask-type: alpha;*/
+	/*background-color: red;*/
+	width: 33px;
+	height: 31px;
+}
+
+.anim-presets-picker-item:hover{
+	cursor: pointer;
+	transform: scale(1.03);
+}
+
+.anim-presets-picker-item:hover > div:first-child{
+	background-color: rgba(255,255,255,0.06);
+}
+
+.anim-presets-picker-item:hover > span{opacity: .54;}
+
+.anim-presets-picker-item:hover > div:first-child > img{
+	animation-iteration-count: infinite;
+}
+
+.anim-presets-picker-item:hover .anim-preview-progress-bar{
+	animation-name: animProgress;
+	animation-play-state: running;
+}
+
+
+.anim-presets-picker-preset-title{
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.timeline-empty{
+	background-color: rgba(255,255,255,0.1);
+	height: 12px;
+	width: 100%;
+	border-radius: 2px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.timeline-appearance{
+	height: 100%;
+	width: 15%;
+	background-color: #54FFEA;
+}
+
+.timeline-fade{
+	height: 100%;
+	width: 15%;
+	background-color: #FF545E;
+}
+
+.timeline-timings{
+	margin-top: 4px;
+	font-size: 14px;
+	line-height: 20px;
+	opacity: .54;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.anim-presets-wrapper{
+	width: 100%;
+	margin-top: 12px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 4px;
+}
+
+.anim-preset-item{
+	background-color: hsl(205, 30%, 36%);
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	border-radius: 6px;
+	transition: all .2s ease;
+}
+
+.anim-preset-item:hover{
+	background-color: hsl(205, 30%, 46%);
+}
+
+.anim-preset-item .anim-preview-progress-bar{
+	position: absolute;
+	left: 0;
+	top: calc(100% - 2px);
+	animation-duration: 1s;
+}
+
+.anim-preset-item:hover{
+	cursor: pointer;
+}
+
+.anim-preset-item:hover .anim-preview-progress-bar{
+	animation-name: animProgress;
+}
+
+.anim-preset-phase-title{
+	margin-bottom: 6px;
+}
+
+.anim-preset-preview{
+	position: relative;
+	width: 100%;
+	height: 96px;
+	background-image: url('../img/anim-preset-bg.png');
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-left: 1px solid #406077;
+	border-right: 1px solid #406077;
+	border-top: 1px solid #406077;
+	overflow: hidden;
+	transition: all .2s ease;
+}
+
+.anim-preset-preview > img{
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	position: absolute;
+}
+
+
+.anim-preset-title-wrapper{
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 6px 12px;
+	height: 36px;
+	width: 100%;
+	background-color: hsl(205, 30%, 36%);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	transition: all .2s ease;
+}
+
+.anim-preset-item:hover .anim-preset-title-wrapper{
+	background-color: hsl(205, 30%, 46%);
+}
+
+.anim-preset-item:hover .anim-preset-preview{
+	border-color: hsl(205, 30%, 46%);
+}
+
+.anim-preset-time{
+	font-size: 14px;
+	opacity: .54;
+}
+
+#preset-image{
+	
+}
+
+.preview{
+	position: relative;
+}
+
+.move-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*.mover{
+	position: absolute;
+	top: calc(50% - 72px);
+	left: calc(50% - 72px);
+	animation-timing-function: linear;
+}*/
+
+.appearance{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.fader{
+	animation-name: zoomOut;
+	animation-duration: 1s;
+}
+
+.appearance-anim{
+	animation-name: zoomIn;
+}
+
+.move-anim{
+	animation-name: moveRight;
+}
+
+.fade-anim{
+	animation-name: zoomOut;
+}
+
+
+
+.bounceIn:hover > div > img{
+	animation-name: bounceIn;
+}
+
+.bounceInDown:hover > div > img{
+	animation-name: bounceInDown;
+}
+
+.bounceInLeft:hover > div > img{
+	animation-name: bounceInLeft;
+}
+
+.bounceInRight:hover > div > img{
+	animation-name: bounceInRight;
+}
+
+.bounceInUp:hover > div > img{
+	animation-name: bounceInUp;
+}
+
+.fadeIn:hover > div > img{
+	animation-name: fadeIn;
+}
+
+.fadeInDown:hover > div > img{
+	animation-name: fadeInDown;
+}
+
+.fadeInDownBig:hover > div > img{
+	animation-name: fadeInDownBig;
+}
+
+.fadeInLeft:hover > div > img{
+	animation-name: fadeInLeft;
+}
+
+.fadeInLeftBig:hover > div > img{
+	animation-name: fadeInLeftBig;
+}
+
+.fadeInRight:hover > div > img{
+	animation-name: fadeInRight;
+}
+
+.fadeInRightBig:hover > div > img{
+	animation-name: fadeInRightBig;
+}
+
+.fadeInUp:hover > div > img{
+	animation-name: fadeInUp;
+}
+
+.fadeInUpBig:hover > div > img{
+	animation-name: fadeInUpBig;
+}
+
+.slideInUp:hover > div > img{
+	animation-name: slideInUp;
+}
+
+.slideInDown:hover > div > img{
+	animation-name: slideInDown;
+}
+
+.slideInRight:hover > div > img{
+	animation-name: slideInRight;
+}
+
+.slideInLeft:hover > div > img{
+	animation-name: slideInLeft;
+}
+
+.zoomIn:hover > div > img{
+	animation-name: zoomIn;
+}
+
+.zoomInDown:hover > div > img{
+	animation-name: zoomInDown;
+}
+
+.zoomInLeft:hover > div > img{
+	animation-name: zoomInLeft;
+}
+
+.zoomInRight:hover > div > img{
+	animation-name: zoomInRight;
+}
+
+.zoomInUp:hover > div > img{
+	animation-name: zoomInUp;
+}
+
+.rotateIn:hover > div > img{
+	animation-name: rotateIn;
+}
+
+.rotateInDownLeft:hover > div > img{
+	animation-name: rotateInDownLeft;
+}
+
+.rotateInDownRight:hover > div > img{
+	animation-name: rotateInDownRight;
+}
+
+.rotateInUpLeft:hover > div > img{
+	animation-name: rotateInUpLeft;
+}
+
+.rotateInUpRight:hover > div > img{
+	animation-name: rotateInUpRight;
+}
+
+.flipInX{
+	-webkit-backface-visibility: visible !important;
+  	backface-visibility: visible !important;
+}
+
+.flipInY{
+	-webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+}
+
+.flipInX:hover > div > img{
+	animation-name: flipInX;
+}
+
+.flipInY:hover > div > img{
+	animation-name: flipInY;
+}
+
+.lightSpeedIn{
+	-webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+}
+
+.lightSpeedIn:hover > div > img{
+	animation-name: lightSpeedIn;
+}
+
+.jackInTheBox:hover > div > img{
+	animation-name: jackInTheBox;
+}
+
+.rollIn:hover > div > img{
+	animation-name: rollIn;
+}
+
+@keyframes animProgress{
+	from{width: 0%;}
+	to{width: 100%;}
+}
+
+@keyframes presetsPickerSlide{
+	from{}
+	to{left:0px;}
+}
+
+@keyframes left-right {
+	0%  {left: calc(0% - 72px);}
+	25% {left: 0%;}
+	50% {left: calc(0% + 72px);}
+	100%{left: 0%;}
+}
+
+@keyframes pickerAppearance{
+	from{
+		opacity: 0;
+		animation-timing-function: ease-out;
+	}
+	to{	
+		animation-timing-function: ease-out;
+		opacity: 1;
+	}
+}
+
+@keyframes pickerGroupAppearance{
+	from{
+		margin-bottom: 72px; 
+	}
+	to{
+		margin-bottom: 36px;
+	}
+}
+

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<script src="js/slider.js"></script>
+	<meta charset="UTF-8">
+	<title>Alerts — TipAlerts</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animation.css">
+	<link rel="stylesheet" href="css/preview.css">
+	<!-- <link rel="stylesheet" href="css/animationKeyframes.css"> -->
+	<!-- <link rel="stylesheet" href="css/animMoveKeyframes.css"> -->
+	<!-- <link rel="stylesheet" href="css/animFadeKeyframes.css"> -->
+	<link rel="stylesheet" href="css/keyframes-blink.css">
+	<link rel="stylesheet" href="css/keyframes-bounce.css">
+	<link rel="stylesheet" href="css/keyframes-fade.css">
+	<link rel="stylesheet" href="css/keyframes-flip.css">
+	<link rel="stylesheet" href="css/keyframes-fold.css">
+	<link rel="stylesheet" href="css/keyframes-hinge.css">
+	<link rel="stylesheet" href="css/keyframes-jackInTheBox.css">
+	<link rel="stylesheet" href="css/keyframes-jump.css">
+	<link rel="stylesheet" href="css/keyframes-lightspeed.css">
+	<link rel="stylesheet" href="css/keyframes-move.css">
+	<link rel="stylesheet" href="css/keyframes-pop.css">
+	<link rel="stylesheet" href="css/keyframes-pull.css">
+	<link rel="stylesheet" href="css/keyframes-roll.css">
+	<link rel="stylesheet" href="css/keyframes-rotate.css">
+	<link rel="stylesheet" href="css/keyframes-slide.css">
+	<link rel="stylesheet" href="css/keyframes-spin.css">
+	<link rel="stylesheet" href="css/keyframes-swoop.css">
+	<link rel="stylesheet" href="css/keyframes-zoom.css">
+	<!-- <link rel="stylesheet" href="css/keyframes-other.css"> -->
+
+</head>
+<body>
+	
+	<nav class="navigation">
+
+		<div id="nav-left">
+			<div id="nav-logo">
+				<span>tipalerts</span>
+			</div>
+			<div id="nav-widgets">
+
+				<a href="#" class="nav-item" id="widget-alerts">
+					<div>Alerts</div>
+				</a>
+
+				<a href="#" class="nav-item" id="widget-goals">
+					<div>Goals</div>
+				</a>
+
+				<a href="#" class="nav-item" id="widget-top-tippers">
+					<div>Top Tippers</div>
+				</a>
+
+				<a href="#" class="nav-item" id="widget-roll-the-dice">
+					<div>Roll The Dice</div>
+				</a>
+
+			</div>	
+		</div>
+		
+		<div id="nav-right">
+			<span id="email">johndoe@domain.com</span>
+			<a href="#" class="nav-item">
+					<div>EN</div>
+			</a>
+			<a href="#" class="nav-item">
+					<div>Help</div>
+			</a>
+			<a href="#" class="nav-item">
+					<div>Settings</div>
+			</a>
+			<a href="#" class="nav-item">
+					<div>Sign Out</div>
+			</a>
+			
+		</div>
+	</nav>
+
+	<div style="display: flex; justify-content: center; flex-grow: 1;">
+		<div class="container">
+
+			<div class="widget-head" id="alerts-widget-head">
+				<span class="widget-title">Alerts</span>
+
+				<div style="display: flex; flex-direction: row; justify-content: flex-end; ">
+					<div style="height: 36px; display: flex; align-items: center; margin-right: 12px;">
+						<span>Widget link</span>
+					</div>
+
+					<div style="display: flex; flex-direction: column;">
+						<input type="text" id="widget-link-input" value="https://tipalerts.com/w/tips/e00b2c04-1571-4750-98f6-e3dc8e13ad8e">
+						<span class="widget-link-warning">Warning! Do not publish widget link, it’ll cause access to your widgets and stats.</span>
+					</div>
+
+					<button class="button-text" style="margin-left: 6px;">Copy</button>
+					<button class="button-icon" style="margin-left: 6px;">
+						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+					</button>
+					<button class="button-text" id="testTipButton" style="margin-left: 12px;">
+						Test tip...
+					</button>
+				</div>
+			</div>
+
+			<div class="presets-picker" id="alerts-presets-picker">
+				<h2>Preset</h2>
+				<div class="presets-collection">
+					<button class="presets-collection-item">1-15</button>
+					<button class="presets-collection-item">16-25</button>
+					<button class="presets-collection-item presets-collection-item-selected">25-100</button>
+					<button class="presets-collection-item">101-200</button>
+					<button class="presets-collection-item" id="any-tip">Any other</button>
+				</div>
+				<button class="button-text" style="background-color: #FFB65A; color: #333; font-weight: 700;">Create new</button>
+			</div>
+
+			<div class="preset-content">
+				
+				<div class="preview-wrapper">
+					<div class="module-36"><h3>Preview</h3></div>
+					<div class="preview" id="alerts-preview">
+
+					</div>
+					<div class="preview-controls">
+						<button class="button-icon"> <img src="icons/ic-play.svg" alt=""> </button>
+						<button class="button-icon button-no-bg"> <img src="icons/ic-settings.svg" alt=""> </button>
+					</div>
+				</div>
+
+				<div class="settings">
+
+					<div class="settings-tabs-wrapper" id="alerts-tabs" >
+						<div class="settings-tabs-item settings-tabs-item-active" id="alerts-settings-preset">Preset</div>
+						<div class="settings-tabs-item" id="alerts-settings-tip-amount">Tip amount</div>
+						<div class="settings-tabs-item" id="alerts-settings-tipper-name">Tipper name</div>
+						<div class="settings-tabs-item" id="alerts-settings-custom-message">Custom message</div>
+						<div class="settings-tabs-item" id="alerts-settings-image">Image</div>
+						<div class="settings-tabs-item" id="alerts-settings-sound">Sound</div>
+					</div>
+
+					<div class="settings-tab-content">
+
+							<div id="alerts-settings-preset-content" class="settings-content" style="flex-direction: column;">
+							
+								<section class="preset-settings-section" id="alerts-tabs-preset-condition">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Alert condition</span>
+										<label for="enable-preset" class="checkbox-container">
+											<input type="checkbox" id="enable-preset">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Enable preset</span>
+										</label>
+									</div>
+
+									<div class="col-12" id="any-tip-condition" style="display: none;">
+											<div class="module-36 row">
+												<span>This preset works for all tips that are not used in other presets.</span>
+											</div>		
+									</div>
+
+									<div id="default_tip_condition">
+
+										<div class="row group">
+
+											<div class="col-3">
+												<span class="row-title">Mode</span>
+											</div>
+
+											<div class="col-3">
+
+												<label for="preset-mode-tokens-range" class="checkbox-container">
+													<input type="radio" name="preset-mode" id="preset-mode-tokens-range" checked="true">
+													<span class="radio"></span>
+													<span class="checkbox-text">Tokens range</span>
+												</label>
+
+												<label for="preset-mode-single-amount" class="checkbox-container">
+													<input type="radio" name="preset-mode" id="preset-mode-single-amount">
+													<span class="radio"></span>
+													<span class="checkbox-text">Single amount</span>
+												</label>
+
+											</div>
+
+										</div>
+
+										<div class="module-36 row" id="tokens-range">
+										<span class="col-3 row-title">Tokens range</span>
+										<div class="col-3">
+											<input type="number" disabled="true" value="25">
+										</div>
+										<div class="col-3">
+											<input type="number" disabled="true" value="100">
+										</div>
+										<button class="button-icon button-no-bg tooltipElem"  data-tooltiptext='Edit tokens range'>
+											<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
+										</button>
+										</div>
+
+										<div class="module-36 row" id="tokens-amount" style="display: none;">
+											<span class="col-3 row-title">Tokens amount</span>
+											<div class="col-3"><input type="number" value="50"  disabled="true"></div>
+											<button class="button-icon button-no-bg tooltipElem" data-tooltiptext='Edit tokens amount'>
+												<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+								
+									</div>
+								</section>
+
+								<section class="preset-settings-section">
+									<div class="module-36 settings-section-header"><span>Animation</span></div>
+
+									<div class="row group">
+										<div class="col-3"><span class="row-title">Duration mode</span></div>
+										<div class="col-9" style="display: flex; flex-direction: column;">
+											
+										
+											
+											<label for="duration-depends" class="checkbox-container">
+												<input type="radio" id="duration-depends" name="duration-mode">
+												<span class="radio"></span>
+												<span class="checkbox-text">Duration depends on tip amount</span>
+											</label>
+
+											<label for="custom-duartion" class="checkbox-container">
+												<input type="radio" id="custom-duartion" name="duration-mode" checked="true
+												">
+												<span class="radio"></span>
+												<span class="checkbox-text">Custom duration</span>
+											</label>
+
+										</div>
+									</div>
+
+									<div class="module-36 row" style="align-items: center;" id="duration-slider-container">
+										<span class="col-3 row-title">Duration, sec</span>
+										<div class="col-9" style="align-items: center; display: flex; flex-direction: row;">
+											<div class="slider-container">
+												<input type="range" min="2" max="60" value="4" class="newSlider" id="anim-duration-slider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="number" class="slider-input" value="30">
+										</div>
+									</div>
+								
+									<div class="row">
+										
+											<div class="anim-presets-wrapper" id="anim-pickers-wrapper">
+
+											</div>
+										
+										
+									</div>
+
+
+									<div class="module-36 row" style="margin-top: 24px;">
+										
+										<div class="col-12" style="display: flex; flex-direction: row; align-items: center;">
+											
+											<label for="split-by-one-token" class="checkbox-container">
+												<input type="checkbox" id="split-by-one-token">
+												<span class="checkmark"></span>
+												<span class="checkbox-text">Split alerts by one token</span>
+											</label>
+											<button class="button-icon button-no-bg tooltipElem" style="margin-left: 2px;">
+												<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+										
+									</div>
+
+								</section>
+
+								
+
+								<section class="preset-settings-section">
+									<div class="module-36 settings-section-header"><span>Transform</span></div>
+									<div class="module-36 row">
+										<span class="col-3 row-title">Scale</span>
+										<div class="col-9" style="align-items: center; display: flex; flex-direction: row;">
+											<div class="slider-container">
+												<input type="range" min="0" max="200" value="100" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="number" class="slider-input" value="1">
+										</div>
+									</div>
+								</section>
+
+								<div class="module-36 row" style="display: flex; flex-direction: row; justify-content: flex-end;">
+									<button class="button-text-icon">
+										<img src="icons/ic-thrash.svg" height="24px" width="24px" alt="">
+										Delete preset
+									</button>
+								</div>
+
+							</div>
+						
+
+
+						
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="index.js"></script>
+	<script src="js/animPresets.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/alerts/durationMode.js"></script>
+	<script src="js/animPresetsPicker.js"></script>
+	<script src="js/animation.js"></script>
+
+</body>
+</html>

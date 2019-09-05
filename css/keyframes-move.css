@@ -1,0 +1,356 @@
+keyframes wavesX{
+	
+	0%{
+			left: -25%;
+			animation-timing-function: ease-in-out;
+	}
+
+
+	50%{
+			left: 25%;
+			animation-timing-function: ease-in-out;
+	}
+
+
+	100%{
+			left: -25%;
+			animation-timing-function: ease-in-out;
+	}
+
+}
+
+@keyframes wavesY{
+	
+	0%{
+			top: -25%;
+			animation-timing-function: ease-in-out;
+	}
+
+
+	50%{
+			top: 25%;
+			animation-timing-function: ease-in-out;
+	}
+
+
+	100%{
+			top: -25%;
+			animation-timing-function: ease-in-out;
+	}
+
+}
+
+@keyframes moveTop{
+	from{	
+			top: calc(100% - 144px);
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: 0%;
+		}
+}
+
+@keyframes moveTop-in-out{
+	from{	
+			top: calc(100% - 144px);
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: calc(0% - 144px);
+		}
+}
+
+@keyframes moveTop-out-in{
+	from{	
+			top: 100%;
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: 0%;
+		}
+}
+
+@keyframes moveTop-out-in-preview{
+	from{	
+			top: 100%;
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: 0%;
+		}
+}
+
+@keyframes moveTop-in-out-preview{
+	from{	
+			top: calc(100% - 31px);
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: calc(0% - 31px);
+		}
+}
+
+@keyframes moveTop-out-out{
+	from{	
+			top: 100%;
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: calc(0% - 144px);
+		}
+}
+
+@keyframes moveTop-preview{
+	from{	
+			top: calc(100% - 33px);
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: 0%;
+		}
+}
+
+@keyframes moveTop-out-out-preview{
+	from{	
+			top: 100%;
+		}
+		
+	to{		
+			/*animation-timing-function: ease-in;*/
+			top: calc(0% - 37px);
+		}
+}
+
+@keyframes moveBottom{
+	from{
+			top: 0%;
+		}
+
+	to{
+			top: calc(100% - 144px);
+	}
+}
+
+@keyframes moveBottom-in-out{
+	from{
+			top: 0%;
+		}
+
+	to{
+			top: 100%;
+	}
+}
+
+@keyframes moveBottom-out-in{
+	from{
+			top: calc(0% - 144px);
+		}
+
+	to{
+			top: calc(100% - 144px);
+	}
+}
+
+@keyframes moveBottom-out-in-preview{
+	from{
+			top: calc(0% - 31px);
+		}
+
+	to{
+			top: calc(100% - 31px);
+	}
+}
+
+@keyframes moveBottom-in-out-preview{
+	from{
+			top: 0%;
+		}
+
+	to{
+			top: 100%;
+	}
+}
+
+@keyframes moveBottom-out-out{
+	from{
+			top: calc(0% - 144px);
+		}
+
+	to{
+			top: 100%;
+	}
+}
+
+@keyframes moveBottom-preview{
+	from{
+			top: 0%;
+		}
+
+	to{
+			top: calc(100% - 31px);
+	}
+}
+
+@keyframes moveBottom-out-out-preview{
+	from{
+			top: calc(0% - 37px);
+		}
+
+	to{
+			top: 100%;
+	}
+}
+
+@keyframes moveLeft{
+	from{
+		left: calc(100% - 144px);
+	}
+	to{
+		left: 0%;
+	}
+}
+
+@keyframes moveLeft-in-out{
+	from{
+		left: calc(100% - 144px);
+	}
+	to{
+		left: calc(0% - 144px);
+	}
+}
+
+@keyframes moveLeft-in-out-preview{
+	from{
+		left: calc(100% - 33px);
+	}
+	to{
+		left: calc(0% - 33px);
+	}
+}
+
+@keyframes moveLeft-out-in{
+	from{
+		left: 100%;
+	}
+	to{
+		left: 0%;
+	}
+}
+
+@keyframes moveLeft-out-in-preview{
+	from{
+		left: 100%;
+	}
+	to{
+		left: 0%;
+	}
+}
+
+@keyframes moveLeft-out-out{
+	from{
+		left: 100%;
+	}
+	to{
+		left: calc(0% - 144px);
+	}
+}
+
+@keyframes moveLeft-out-out-preview{
+	from{
+		left: 100%;
+	}
+	to{
+		left: calc(0% - 37px);
+	}
+}
+
+@keyframes moveLeft-preview{
+	from{
+		left: calc(100% - 37px);
+	}
+	to{
+		left: 0%;
+	}
+}
+
+@keyframes moveRight{
+	from{
+		left: 0%;
+	}
+	to{
+		left: calc(100% - 144px);
+	}
+}
+
+@keyframes moveRight-preview{
+	from{
+		left: 0%;
+	}
+	to{
+		left: calc(100% - 33px);
+	}
+}
+
+@keyframes moveRight-in-out-preview{
+	from{
+		left: 0%;
+	}
+	to{
+		left: 100%;
+	}
+}
+
+@keyframes moveRight-out-out{
+	from{
+		left: calc(0% - 144px);
+	}
+	to{
+		left: 100%;
+	}
+}
+
+@keyframes moveRight-out-out-preview{
+	from{
+		left: calc(0% - 37px);
+	}
+	to{
+		left: 100%;
+	}
+}
+
+
+
+@keyframes moveRight-in-out{
+	from{
+		left: 0%;
+	}
+	to{
+		left: 100%;
+	}
+}
+
+
+@keyframes moveRight-out-in{
+	from{
+		left: calc(0% - 144px);
+	}
+	to{
+		left: calc(100% - 144px);
+	}
+}
+
+@keyframes moveRight-out-in-preview{
+	from{
+		left: calc(0% - 33px);
+	}
+	to{
+		left: calc(100% - 33px);
+	}
+}

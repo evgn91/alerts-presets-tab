@@ -1,0 +1,58 @@
+#previews-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	overflow-y: scroll;
+	height: 100vh;
+	width: calc(100vw - 280px);
+	box-sizing: border-box;
+	padding: 24px;
+}
+
+#preview-1920-1080{
+	width: 1920px;
+	height: 1080px;
+}
+
+#preview-1440-900{
+	width: 1440px;
+	height: 900px;
+}
+
+#preview-1280-720{
+	width: 1280px;
+	height: 720px;
+}
+
+#preview-800-600{
+	width: 800px;
+	height: 600px;
+}
+
+#preview-640-480{
+	width: 640px;
+	height: 480px;
+}
+
+.preview-image{
+	background-image: url('../img/preset-image.png');
+	width: 144px;
+	height: 144px;  
+}
+
+.preview-progress-bar-fill{
+	height: 8px;
+	background-color: white;
+	width: 0%;
+	position: absolute;
+	top: calc(100% - 8px);
+	left: 0px;
+	animation-name: animProgress;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+#preview-progress-bar-fill{
+	animation-duration: 2s;
+}
