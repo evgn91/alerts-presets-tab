@@ -17,6 +17,8 @@ let animAppearancePickerTitle = document.getElementById('anim-appearance-preview
 let animMovePickerTitle = document.getElementById('anim-move-preview-title');
 let animFadePickerTitle = document.getElementById('anim-fade-preview-title');
 
+let settingsTabContent = document.getElementById('settings-tab-content');
+
 let previewImgTimeout;
 let activeModal;
 let activePicker;
@@ -50,30 +52,36 @@ let animConfig = {
 					waves: ''
 };
 
-let animPickers = [ 
+let animControlsCfg = { 
 
-					{	
+	appearance:     {	
 						checkboxTitle: 'Appearance',
 						animPhase: 'appearance',
 						animPreset: animConfig.appearance.preset,
 						presets: appearancePresets,
+						settings: false,
+						style: 'left'
 					},
 
-					{
+	move: 			{
 						checkboxTitle: 'Move',
 						animPhase: 'move',
 						animPreset: animConfig.move.preset,
 						presets: movePresets,
+						settings: true,
+						style: 'center'
 					}, 
 
-					{
+	fade: 			{
 						checkboxTitle: 'Fade',
 						animPhase: 'fade',
 						animPreset: animConfig.fade.preset,
 						presets: fadePresets,
+						settings: false,
+						style: 'right'
 					}
 
-				];
+};
 
 
 
@@ -146,7 +154,7 @@ let animSetRandom = function( animPhase, control ){
 			}
 }
 
-let renderPresetsPicker = function(collection, animPhase, control){
+let renderPresetsPicker = function(parentElem, collection, animPhase, control){
 
 	return function(){
 
@@ -271,8 +279,10 @@ let renderPresetsPicker = function(collection, animPhase, control){
 
 							if('duration' in collection[i].presets[j]){
 								presetItemPreviewImg.style.animationDuration = collection[i].presets[j].duration;
+								console.log('CUSTOM PREVIEW DURATION');
 							}
 							else{
+								console.log('DEFAULT PREVIEW DURATION');
 								presetItemPreviewImg.style.animationDuration = '1s';
 							}
 
@@ -387,7 +397,8 @@ let renderPresetsPicker = function(collection, animPhase, control){
 		pickerModal.prepend(pickerModalTitleWrapper);
 		pickerModal.style.animationDuration = '.2s';
 		pickerModal.style.animationName = 'pickerAppearance';
-		document.body.prepend(pickerModal);
+		parentElem.prepend(pickerModal);
+		//document.body.prepend(pickerModal);
 
 		scrollContainer.scrollTop = pickerModalScrollOffset[animPhase];
 		setTimeout(() => {window.addEventListener('click', closeModal);}, 1);
@@ -395,7 +406,7 @@ let renderPresetsPicker = function(collection, animPhase, control){
 	}
 }
 
-let renderAnimControl = function( parentElem, animPhase, controlTitle, presets ) {
+let renderAnimControl = function( pickerCfg, parentElem, animPhase, controlTitle, presets ) {
 		
 		console.log('Creating control');
 		let itemWrapper = document.createElement( 'div' );
@@ -415,6 +426,20 @@ let renderAnimControl = function( parentElem, animPhase, controlTitle, presets )
 		let titleWrapper = document.createElement('div');
 		let title = document.createElement('span');
 
+		let settingsButton = document.createElement('button');
+		let settingsButtonIcon = document.createElement('img');
+		settingsButton.appendChild(settingsButtonIcon);
+		settingsButton.classList.add('button-small', 'button-icon', 'button-no-bg');
+		settingsButtonIcon.src = 'icons/ic-settings.svg';
+		
+
+		if(pickerCfg.settings){
+			settingsButton.style.display = 'flex';
+		}
+		else{
+			settingsButton.style.display = 'none';
+		}
+
 		itemWrapper.classList.add('anim-preset-item-wrapper');
 
 		checkboxWrapper.classList.add('checkbox-container');
@@ -432,6 +457,25 @@ let renderAnimControl = function( parentElem, animPhase, controlTitle, presets )
 		previewPlaceholder.src = 'img/anim-disabled-placeholder.png';
 		previewPlaceholder.style.display = 'none';
 		previewProgressBar.classList.add('anim-preview-progress-bar');
+
+		switch (pickerCfg.style) {
+			case 'left':
+				previewWrapper.classList.add('item-left');
+				titleWrapper.style.borderBottomLeftRadius = '6px';
+				preview.style.borderTopLeftRadius = '6px';
+				break;
+			case 'center':
+				previewWrapper.classList.add('item-center');
+				break;
+			case 'right':
+				previewWrapper.classList.add('item-right');
+				titleWrapper.style.borderBottomRightRadius = '6px';
+				preview.style.borderTopRightRadius = '6px';
+				break;
+			default:
+				// statements_def
+				break;
+		}
 
 		previewWrapper.onmouseenter = function(){
 			console.log(previewImage);
@@ -452,35 +496,6 @@ let renderAnimControl = function( parentElem, animPhase, controlTitle, presets )
 			previewImage.style.animationName = '';
 		}
 
-		// checkboxInput.onchange = function() {
-		// 	console.log('checkbox change');
-		// 	if(!this.checked){
-		// 		previewImageRandom.style.display = 'none';
-		// 		previewImage.style.display = 'none';
-		// 		title.innerHTML = 'Disabled';
-		// 		title.style.opacity = '.54';
-		// 		preview.style.opacity = '.34';
-		// 		previewProgressBar.style.display = 'none';
-		// 		previewPlaceholder.style.display = 'block';
-		// 	}
-		// 	else{
-		// 		title.innerHTML = animConfig[animPhase].preset.title;
-		// 		title.style.opacity = '1';
-		// 		preview.style.opacity = '1';
-		// 		previewPlaceholder.style.display = 'none';
-				
-		// 		if( animConfig[animPhase].preset.title != 'Random'){
-
-		// 			previewImage.style.display = 'block';
-		// 			previewProgressBar.style.display = 'block';
-					
-		// 		}
-		// 		else{
-		// 			previewImageRandom.style.display = 'block';
-		// 		}
-		// 	}
-		// }; 
-
 		titleWrapper.classList.add('anim-preset-title-wrapper');
 		title.innerHTML = animConfig[animPhase].preset.title;
 
@@ -497,6 +512,7 @@ let renderAnimControl = function( parentElem, animPhase, controlTitle, presets )
 		previewWrapper.appendChild( titleWrapper );
 
 		titleWrapper.appendChild( title );
+		titleWrapper.appendChild( settingsButton );
 
 		itemWrapper.appendChild( checkboxWrapper );
 		itemWrapper.appendChild( previewWrapper );
@@ -516,14 +532,14 @@ let renderAnimControl = function( parentElem, animPhase, controlTitle, presets )
 
 		checkboxInput.addEventListener('change', () => {return switchAnimState(control, animPhase, checkboxInput)});
 
-		previewWrapper.addEventListener( 'click', renderPresetsPicker( presets, animPhase, control ) );
+		previewWrapper.addEventListener( 'click', renderPresetsPicker( settingsTabContent, presets, animPhase, control ) );
 
 		return control;
 }
 
-let appearanceAnimControl = renderAnimControl( animPickersWrapper, 'appearance', 'Appearance', appearancePresets );
-let moveAnimControl = renderAnimControl( animPickersWrapper, 'move', 'Move', movePresets );
-let fadeAnimControl = renderAnimControl( animPickersWrapper, 'fade', 'Fade', fadePresets );
+let appearanceAnimControl = renderAnimControl( animControlsCfg.appearance, animPickersWrapper, 'appearance', 'Appearance', appearancePresets );
+let moveAnimControl = renderAnimControl( animControlsCfg.move, animPickersWrapper, 'move', 'Move', movePresets );
+let fadeAnimControl = renderAnimControl( animControlsCfg.fade, animPickersWrapper, 'fade', 'Fade', fadePresets );
 
 
 let closeModal = function(){

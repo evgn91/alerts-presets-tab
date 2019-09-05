@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/animation.css">
 	<link rel="stylesheet" href="css/preview.css">
+	<link rel="stylesheet" href="css/button.css">
 	<!-- <link rel="stylesheet" href="css/animationKeyframes.css"> -->
 	<!-- <link rel="stylesheet" href="css/animMoveKeyframes.css"> -->
 	<!-- <link rel="stylesheet" href="css/animFadeKeyframes.css"> -->
@@ -96,11 +97,11 @@
 						<span class="widget-link-warning">Warning! Do not publish widget link, it’ll cause access to your widgets and stats.</span>
 					</div>
 
-					<button class="button-text" style="margin-left: 6px;">Copy</button>
-					<button class="button-icon" style="margin-left: 6px;">
+					<button class="button-text button-medium" style="margin-left: 6px;">Copy</button>
+					<button class="button-icon button-medium" style="margin-left: 6px;">
 						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
 					</button>
-					<button class="button-text" id="testTipButton" style="margin-left: 12px;">
+					<button class="button-text button-medium" id="testTipButton" style="margin-left: 12px;">
 						Test tip...
 					</button>
 				</div>
@@ -109,13 +110,13 @@
 			<div class="presets-picker" id="alerts-presets-picker">
 				<h2>Preset</h2>
 				<div class="presets-collection">
-					<button class="presets-collection-item">1-15</button>
-					<button class="presets-collection-item">16-25</button>
-					<button class="presets-collection-item presets-collection-item-selected">25-100</button>
-					<button class="presets-collection-item">101-200</button>
-					<button class="presets-collection-item" id="any-tip">Any other</button>
+					<button class="presets-collection-item button-medium">1-15</button>
+					<button class="presets-collection-item button-medium">16-25</button>
+					<button class="presets-collection-item presets-collection-item-selected button-medium">25-100</button>
+					<button class="presets-collection-item button-medium">101-200</button>
+					<button class="presets-collection-item button-medium" id="any-tip">Any other</button>
 				</div>
-				<button class="button-text" style="background-color: #FFB65A; color: #333; font-weight: 700;">Create new</button>
+				<button class="button-text button-medium" style="background-color: #FFB65A; color: #333; font-weight: 700;">Create new</button>
 			</div>
 
 			<div class="preset-content">
@@ -142,7 +143,7 @@
 						<div class="settings-tabs-item" id="alerts-settings-sound">Sound</div>
 					</div>
 
-					<div class="settings-tab-content">
+					<div class="settings-tab-content" id="settings-tab-content">
 
 							<div id="alerts-settings-preset-content" class="settings-content" style="flex-direction: column;">
 							
@@ -269,7 +270,7 @@
 												<span class="checkmark"></span>
 												<span class="checkbox-text">Split alerts by one token</span>
 											</label>
-											<button class="button-icon button-no-bg tooltipElem" style="margin-left: 2px;">
+											<button class="button-icon button-no-bg tooltipElem button-small" style="margin-left: 6px;">
 												<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
 											</button>
 										</div>

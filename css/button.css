@@ -1,0 +1,85 @@
+button{
+	padding: 0px;
+	margin: 0px;
+	/*height: 36px;*/
+	border: none;
+	outline: none;
+	background-color: hsla(206, 29%, 36%, 1);
+	box-sizing: border-box;
+	/*padding-top: 2px;*/
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	transition: all .2s ease;
+}
+
+button:hover{
+	cursor: pointer;
+	background-color: hsla(206, 29%, 46%, 1);
+}
+
+button:active{
+	cursor: pointer;
+	background-color: hsla(206, 29%, 36%, 1);
+}
+
+.button-text-icon{
+	border-radius: 4px;
+	padding-left: 10px;
+	padding-right: 16px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.button-text-icon img{
+	margin-right: 2px;
+}
+
+.button-icon{
+	/*padding: 6px;*/
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-no-bg{
+	background: none;
+	transition: all .2s ease;
+}
+
+.button-no-bg:hover{
+	background: none;
+}
+
+.button-no-bg img{
+	opacity: .54;
+	transition: all .2s ease;
+}
+
+.button-no-bg:hover img{
+	opacity: 1;
+	/*background: rgba(0,0,0,0) !important; */
+}
+
+.button-icon-fix-padding{
+	padding-top: 4px;
+}
+
+.button-text{
+	padding-left: 16px;
+	padding-right: 16px;
+	border-radius: 4px;
+	word-wrap: none;
+	box-sizing: border-box;
+}
+
+.button-medium{
+	height: 36px;
+}
+
+.button-small{
+	height: 24px;
+}

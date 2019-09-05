@@ -26,7 +26,8 @@ let appearancePresets = [ 'Select appearance animation',
 											{
 												anim: 'bounceIn',
 												title: 'Bounce In',
-												target: 'appearanceCenter'
+												target: 'appearanceCenter',
+												duration: '.75s'
 											},
 
 											{
@@ -425,7 +426,8 @@ let fadePresets = ['Select fade animation',
 											{
 												anim: 'bounceOut',
 												title: 'Bounce Out',
-												target: 'fadeCenter'
+												target: 'fadeCenter',
+												duration: '.75s'
 											},
 
 											{
